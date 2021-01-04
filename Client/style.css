@@ -1,0 +1,110 @@
+body {
+    background: linear-gradient(to right, rgba(0, 255, 108, .8),rgba(0, 170, 255, 0.8) );
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.container1 {
+    width: 70%;
+    margin: auto;
+    margin-top: 3.5%;;
+    padding: 10px;
+    text-align: center;
+}
+
+.container2 {
+    width: 70%;
+    margin: auto;
+    margin-top: 3.5%;
+    margin-left: 22.75%;
+    padding: 5px;
+    border-radius: 25px;
+    text-align: left;
+}
+.container2 .chk{
+    margin-right: 10px;
+    height: fit-content;
+    box-sizing: content-box;
+}
+.container2 .chk:checked{
+    background-color: #2196F3;
+}
+
+
+#list li{
+    width: 70%;
+    list-style: none;
+    background-color: rgb(195, 195, 195);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    opacity: 1;
+    /* -webkit-transition: opacity 600ms linear;
+    transition: opacity 600ms linear; */
+}
+
+@keyframes moveRight {
+    0% {
+        opacity: 1;
+        transform: translate(0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+#main-header {
+   font-size: 25px;
+   width: 70%;
+   margin: auto;
+   padding: 10px;
+   text-align: center;
+}
+
+#text-box {
+    width: 60%;
+    height: 1.5rem;
+    /* box-sizing: border-box; */
+    /* border-radius: 10px 20px 5px 50px; */
+    border-radius: 10px;
+    border: 1px solid transparent;
+    outline: none;
+}
+/* #text-box:focus {
+    outline:auto;
+    outline-style: dotted;
+    
+} */
+
+.btn {
+    cursor: pointer;
+    width: 10%;
+    height: 1.855rem;
+    background-color: #d61010;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 3px 5px 4px 0.5px rgba(0,0,0,.2);
+}
+
+.chk {
+    cursor: pointer;
+    padding-right: 1.5rem;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+input[type=text] {
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    padding-left: 10px;
+}
