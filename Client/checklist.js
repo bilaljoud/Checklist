@@ -1,7 +1,11 @@
+// const xhr = new XMLHttpRequest();
+const url = 'http://localhost:5000'
+
 const button = document.querySelector('.btn')
 const input = document.querySelector('#text-box')
 const ul = document.querySelector('#list')
-let itemNumber = 0
+let taskNumber = 0
+let date = new Date()
 
 button.addEventListener('click', addToList)
 
@@ -18,15 +22,12 @@ function addToList(event) {
         const textNode = document.createTextNode(` ${item}`)
         node.appendChild(textNode)
         document.getElementById('list').appendChild(node)
-        localStorage.setItem(itemNumber, item)
+        // localStorage.setItem(itemNumber, item)
+
+        const task = makeDataIntoObject(item);
+        giveDataToServer('http://localhost:5000', task);
+
         input.value = ''
-
-        function deleteFromList() {
-            localStorage.removeItem(itemNumber)
-        }
-        itemNumber++
-
-        return deleteFromList
     }
 }
 
@@ -37,8 +38,36 @@ function removeFromList(checkbox) {
         checkbox.parentElement.style.animation = 'moveRight 400ms';
         setTimeout(() => ul.removeChild(checkbox.parentElement), 390)
     
-        addToList.deleteFromList();
-
     }
 }
 
+// async function getServerData(data) {
+//     const get = await fetch('http://localhost:5000', {
+//         method: 'GET'
+//     });
+//     console.log(await get.json());
+// }
+
+async function giveDataToServer(url, data) {
+    const push = await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+            // 'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify(data)
+    });
+    console.log(await push.json());
+}
+
+function makeDataIntoObject(item) {
+    const task = {
+        taskNum: taskNumber,
+        dateTime: date,
+        task: item
+    }
+    taskNumber++
+
+    return task
+}
