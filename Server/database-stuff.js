@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
 async function dbops() {
-    const url = 'mongodb+srv://Bilal:<admin>@cluster0.qzp1c.mongodb.net/<Simple checklist>?retryWrites=true&w=majority';
+    const url = '';
 
     const client = new MongoClient(url);
     try {
