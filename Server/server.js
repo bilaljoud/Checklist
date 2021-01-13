@@ -1,20 +1,24 @@
 import express from 'express';
+import dbops from './database-stuff.js'
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
     // res.header('Access-Control-Allow-Origin', '*');
+
     res.json('Hello World');
     
 });
 
 app.post('/', (req, res) => {
-    // if (!req.body)
-    // res.header('Access-Control-Allow-Origin', '*');
+    const task = req.body;
 
-    console.log(hello)
-    res.send('Hello')
+    await dbops(task, 'create')
+    // console.log(task);
+    // res.send('Hello');
 });
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`));
