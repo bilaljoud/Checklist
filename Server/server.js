@@ -6,19 +6,25 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
+// get all tasks
 app.get('/', (req, res) => {
     // res.header('Access-Control-Allow-Origin', '*');
-
+    const task = req.body
+    await dbops(task, 'get');
     res.json('Hello World');
     
 });
 
+// creating a task
 app.post('/', (req, res) => {
     const task = req.body;
 
-    await dbops(task, 'create')
+    await dbops(task, 'create');
     // console.log(task);
     // res.send('Hello');
 });
+
+// update a task
+app.
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`));
