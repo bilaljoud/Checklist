@@ -25,6 +25,15 @@ app.post('/', (req, res) => {
 });
 
 // update a task
-app.
+app.put('/', (req, res) => {
+    const task = req.body;
+    await dbops(task, 'update');
+});
+
+// delete a task
+app.delete('/', (req, res) => {
+    const task = req.body;
+    await dbops(task, 'delete');
+});
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`));
